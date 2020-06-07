@@ -16,6 +16,10 @@ targets:
     dependencies:
       - sdk: Foundation.framework
       - sdk: UIKit.framework
+      - carthage: RIBs
+      - carthage: RxSwift
+      - carthage: SnapKit
+      - carthage: Kingfisher
 
   RIBsGithubTests:
     type: bundle.unit-test
@@ -30,6 +34,8 @@ targets:
       - sdk: Foundation.framework
       - sdk: UIKit.framework
       - target: RIBsGithub
+      - carthage: Quick
+      - carthage: Nimble
 
 schemes:
   RIBsGithub:
