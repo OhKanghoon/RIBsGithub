@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  RibsGithub
+//  RIBsGithub
 //
 //  Created by ohkanghoon on 2020/06/06.
 //  Copyright © 2020 kanghoon. All rights reserved.
