@@ -1,0 +1,39 @@
+name: RIBsGithub
+options:
+  minimumXcodeGenVersion: 2.14.0
+  bundleIdPrefix: com.kanghoon.RIBsGithub
+  defaultConfig: Release
+  createIntermediateGroups: true
+  settingPresets: none
+  tabWidth: 2
+  indentWidth: 2
+configs:
+  Debug: debug
+  Profile: debug
+  Release: release
+configFiles:
+  Debug: ConfigurationSettings/Project-Debug.xcconfig
+  Profile: ConfigurationSettings/Project-Profile.xcconfig
+  Release: ConfigurationSettings/Project-Release.xcconfig
+fileGroups:
+  - ConfigurationSettings/Project-Shared.xcconfig
+  - ConfigurationSettings/RIBsGithub-Shared.xcconfig
+  - ConfigurationSettings/RIBsGithubTests-Shared.xcconfig
+  - Projects/RIBsGithub/Supporting Files/RIBsGithub-Info.plist
+  - Projects/RIBsGithub/Supporting Files/RIBsGithubTests-Info.plist
+schemes:
+  AllTests:
+    build:
+      targets:
+        RIBsGithub: test
+    test:
+      gatherCoverageData: true
+      environmentVariables:
+        OS_ACTIVITY_MODE: disable
+        TEST: 1
+      targets:
+        - RIBsGithubTests
+
+include:
+  - Projects/templates.yml
+  - Projects/RIBsGithub/project.yml

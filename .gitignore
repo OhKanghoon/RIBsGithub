@@ -1,0 +1,21 @@
+build
+*.ipa
+*.dSYM.zip
+.DS_Store
+.bundle
+*.xcodeproj
+*.xcworkspace
+**/xcuserdata
+**/xcshareddata
+*.pbxuser
+*.mode1v3
+fastlane/README.md
+fastlane/report.xml
+.env
+
+# CocoaPods
+Pods
+
+# Carthage
+Carthage/Checkouts
+Carthage/Build/

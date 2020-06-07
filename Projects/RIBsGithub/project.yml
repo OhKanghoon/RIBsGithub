@@ -1,0 +1,54 @@
+targets:
+  RIBsGithub:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+      - path: Resources
+      - path: Supporting Files
+        excludes:
+          - RIBsGithub-Info.plist
+          - RIBsGithubTests-Info.plist
+    configFiles:
+      Debug: ../../ConfigurationSettings/RIBsGithub-Debug.xcconfig
+      Profile: ../../ConfigurationSettings/RIBsGithub-Profile.xcconfig
+      Release: ../../ConfigurationSettings/RIBsGithub-Release.xcconfig
+    dependencies:
+      - sdk: Foundation.framework
+      - sdk: UIKit.framework
+
+  RIBsGithubTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+    configFiles:
+      Debug: ../../ConfigurationSettings/RIBsGithubTests-Debug.xcconfig
+      Profile: ../../ConfigurationSettings/RIBsGithubTests-Profile.xcconfig
+      Release: ../../ConfigurationSettings/RIBsGithubTests-Release.xcconfig
+    dependencies:
+      - sdk: Foundation.framework
+      - sdk: UIKit.framework
+      - target: RIBsGithub
+
+schemes:
+  RIBsGithub:
+    build:
+      targets:
+        RIBsGithub: all
+        RIBsGithubTests: [test]
+    run:
+      language: ko
+      environmentVariables:
+        - variable: OS_ACTIVITY_MODE
+          value: disable
+    test:
+      gatherCoverageData: true
+      disableMainThreadChecker: true
+      targets: [RIBsGithubTests]
+      environmentVariables:
+        OS_ACTIVITY_MODE: disable
+        TEST: 1
+    profile:
+      config: Profile
+
