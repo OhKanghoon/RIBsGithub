@@ -1,15 +1,15 @@
 //
-//  RibsGithubTests.swift
-//  RibsGithubTests
+//  RIBsGithubTests.swift
+//  RIBsGithubTests
 //
 //  Created by ohkanghoon on 2020/06/06.
 //  Copyright © 2020 kanghoon. All rights reserved.
 //
 
 import XCTest
-@testable import RibsGithub
+@testable import RIBsGithub
 
-class RibsGithubTests: XCTestCase {
+class RIBsGithubTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

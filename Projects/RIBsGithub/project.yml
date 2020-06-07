@@ -16,10 +16,12 @@ targets:
     dependencies:
       - sdk: Foundation.framework
       - sdk: UIKit.framework
+      - carthage: Kingfisher
       - carthage: RIBs
+      - carthage: RxCocoa
+      - carthage: RxRelay
       - carthage: RxSwift
       - carthage: SnapKit
-      - carthage: Kingfisher
 
   RIBsGithubTests:
     type: bundle.unit-test

@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    timeout-minutes: 60
+
+    steps:
+    - uses: actions/checkout@v1
+      
+    - name: Install Brew Dependencies
+      run: brew bundle
+      
+    - name: Cache Ruby Dependencies
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ruby-bundle-${{ hashFiles('Gemfile.lock') }}
+
+    - name: Install Ruby Dependencies
+      run: bundle install --path vendor/bundle
+      
+    - name: Cache Carthage Dependencies
+      uses: actions/cache@v2
+      with:
+        path: Carthage
+        key: carthage-${{ hashFiles('**/Cartfile.resolved') }}
+
+    - name: Generate Xcode Project
+      run: make project
+
+    - name: Build and Test
+      run: |
+        set -o pipefail && bundle exec fastlane scan \
+          --clean \
+          --skip_build \
+          --force_quit_simulator \
+          --project "RIBsGithub.xcodeproj" \
+          --scheme "AllTests" \
+          --device "iPhone 11 Pro" \
+          --config Debug \
+          --output_style rspec \
+          --xcargs "OTHER_SWIFT_FLAGS='\$(inherited) -suppress-warnings' GCC_WARN_INHIBIT_ALL_WARNINGS=YES" \
+          | grep --line-buffered -v "\[MT\]" \
+          | grep --line-buffered -v "DTDeviceKit" \
+          | grep --line-buffered -v "SimDevice" \
+          | grep --line-buffered -v "IDETestOperationsObserverDebug" \
+          | grep --line-buffered -v "iPhoneSupport" \
+          | grep --line-buffered -v "/Diagnostics/" \
+          | grep --line-buffered -v "DVTiPhoneSimulator" \
+          | grep --line-buffered -v "Method:   -primaryInstrumentsServerWithError:" \
+          | grep --line-buffered -v "Thread:   <NSThread:" \
+          | grep --line-buffered -v "Please file a bug at" \
+          | egrep --line-buffered -v "\} \(\d+\.\d+"
+          
+    - name: Upload Code Coverage
+      run: |
+        bundle exec slather coverage \
+          --scheme "AllTests" \
+          --ignore "Carthage/**/*" \
+          --cobertura-xml \
+          "RIBsGithub.xcodeproj"
+        bash <(curl -s https://codecov.io/bash) \
+          -f cobertura.xml \
+          -X coveragepy \
+          -X gcov \
+          -X xcode \
+          -t f03f8c76-b443-46f2-baca-205b58da7a38
