@@ -1,0 +1,19 @@
+# RxSwift
+github "ReactiveX/RxSwift" ~> 5.0
+
+# RIBs
+github "uber/RIBs" ~> 0.9
+
+# Network
+github "Alamofire/Alamofire" ~> 5.2
+github "Moya/Moya" ~> 14.0
+
+# UI
+github "SnapKit/SnapKit" ~> 5.0.0
+
+# Utils
+github "onevcat/Kingfisher" ~> 5.0
+
+# Test
+github "Quick/Quick" ~> 2.2.0
+github "Quick/Nimble" ~> 8.0
