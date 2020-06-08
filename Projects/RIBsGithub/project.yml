@@ -36,8 +36,7 @@ targets:
       - sdk: Foundation.framework
       - sdk: UIKit.framework
       - target: RIBsGithub
-      - carthage: Quick
-      - carthage: Nimble
+      - target: TestFoundation
 
 schemes:
   RIBsGithub:
