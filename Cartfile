@@ -13,6 +13,7 @@ github "SnapKit/SnapKit" ~> 5.0.0
 
 # Utils
 github "onevcat/Kingfisher" ~> 5.0
+github "SwiftyBeaver/SwiftyBeaver"
 
 # Test
 github "Quick/Quick" ~> 2.2.0
