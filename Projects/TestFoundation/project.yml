@@ -1,0 +1,12 @@
+targets:
+  TestFoundation:
+    templates: [Framework]
+    dependencies:
+      - sdk: XCTest.framework
+      - carthage: Nimble
+      - carthage: Quick
+ 
+  TestFoundationTests:
+    templates: [UnitTest]
+    templateAttributes:
+      testTarget: TestFoundation
