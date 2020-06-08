@@ -1,0 +1,12 @@
+targets:
+  Logging:
+    templates: [Framework]
+    dependencies:
+      - carthage: SwiftyBeaver
+ 
+  LoggingTests:
+    templates: [UnitTest]
+    templateAttributes:
+      testTarget: Logging
+    dependencies:
+      - target: TestFoundation

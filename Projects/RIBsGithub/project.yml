@@ -16,6 +16,7 @@ targets:
     dependencies:
       - sdk: Foundation.framework
       - sdk: UIKit.framework
+      - target: Logging
       - carthage: Kingfisher
       - carthage: RIBs
       - carthage: RxCocoa
