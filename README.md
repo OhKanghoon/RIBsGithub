@@ -1,6 +1,6 @@
 # RIBsGithub
 [![Build Status](https://github.com/OhKanghoon/RIBsGithub/workflows/CI/badge.svg)](https://github.com/OhKanghoon/RIBsGithub/actions)
-[![codecov](https://codecov.io/gh/OhKanghoon/RIBsGithub/branch/master/graph/badge.svg)](https://codecov.io/gh/OhKanghoon/RIBsGithub)
+[![codecov](https://codecov.io/gh/OhKanghoon/RIBsGithub/branch/develop/graph/badge.svg)](https://codecov.io/gh/OhKanghoon/RIBsGithub)
 
 ## Development
 
