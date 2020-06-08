@@ -26,6 +26,7 @@ schemes:
     build:
       targets:
         RIBsGithub: test
+        Logging: test
         TestFoundation: test
     test:
       gatherCoverageData: true
@@ -34,9 +35,11 @@ schemes:
         TEST: 1
       targets:
         - RIBsGithubTests
+        - LoggingTests
         - TestFoundationTests
 
 include:
   - Projects/templates.yml
   - Projects/RIBsGithub/project.yml
+  - Projects/Logging/project.yml
   - Projects/TestFoundation/project.yml
